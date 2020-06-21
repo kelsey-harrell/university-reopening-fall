@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+		    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+		<title>University COVID-19 fall plans</title>
+			<style>
+				html, body {
+					height: 100%;
+					margin: 0;
+				}
+				#map {
+					width: 100%;
+					height: 100%;
+				}
+			</style>
+	</head>
+	<body>
+
+<div id='map'></div>
+
+<script>
+	var map = L.map('map').setView([42.713955826286046, -86.580078125], 6);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoiYWFkaXR0YW1iZSIsImEiOiJjazVzbzgwdnowcHp2M2VtanNsemFybm53In0.mcW15QN53dKi4J1gKoJKyQ'
+}).addTo(map);
+
+	var LeafIcon = L.Icon.extend({
+		options: {
+			iconSize: [20, 20],
+			iconAnchor: [16, 16],
+			popupAnchor: [-8, -20]
+		}
+	});
+
+	var iaIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		michIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		uniIcon = new LeafIcon ({iconUrl: 'univ.svg'}),
+		isuIcon = new LeafIcon ({iconUrl: 'univ.svg'}),
+		purdueIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		uwmadIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		osuIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		nebIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		pennIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		msuIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		minnIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		illIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		indIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		maryIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		nwestIcon = new LeafIcon({iconUrl: 'univ.svg'}),
+		rutIcon = new LeafIcon({iconUrl: 'univ.svg'});
+
+	L.marker([41.66060124302088, -91.53602600097656,], {icon: iaIcon}).bindPopup("University of Iowa: <a href='https://coronavirus.uiowa.edu/'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([42.0239, -93.6476,], {icon: isuIcon}).bindPopup("Iowa State University: <a href='https://web.iastate.edu/safety/updates/covid19/planning'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([42.5134, -92.4625,], {icon: uniIcon}).bindPopup("University of Northern Iowa: <a href='https://forwardtogether.uni.edu/'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([40.4240, -86.9290,], {icon: purdueIcon}).bindPopup("Purdue University: <a href='https://protect.purdue.edu/updates/'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([42.29407210639585, -83.7103271484375,], {icon: michIcon}).bindPopup("University of Michigan: <a href='https://coronavirus.umich.edu/'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([43.0704, -89.4035,], {icon: uwmadIcon}).bindPopup("University of Wisconsin-Madison: <a href='https://smartrestart.wisc.edu/'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([39.999260, -83.014824,], {icon: osuIcon}).bindPopup("Ohio State University: <a href='https://president.osu.edu/leadership-and-committees/post-pandemic-operations-task-force'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([40.824340820, -96.662666321,], {icon: nebIcon}).bindPopup("University of Nebraska-Lincoln: <a href='https://covid19.unl.edu/fall-2020-experience'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([40.796036, -77.862739,], {icon: pennIcon}).bindPopup("Penn State University: <a href='https://virusinfo.psu.edu/back-to-state/'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([42.723387, -84.481366,], {icon: msuIcon}).bindPopup("Michigan State University: <a href='https://msu.edu/coronavirus/reopening-campus/'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([44.9718, -93.2338,], {icon: minnIcon}).bindPopup("University of Minnesota: <a href='https://safe-campus.umn.edu/return-campus/university-planning-response'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([40.106322908, -88.2237124385,], {icon: illIcon}).bindPopup("University of Illinois Urbana-Champaign: <a href='https://covid19.illinois.edu/modified-on-campus-instruction-for-fall-2020-semester/'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([39.167322, -86.521414,], {icon: indIcon}).bindPopup("Indiana University Bloomington: <a href='https://fall2020.iu.edu/?_ga=2.114351751.1017363186.1592773549-254086412.1592510125'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([38.9858, -76.9373,], {icon: maryIcon}).bindPopup("University of Maryland: <a href='https://umd.edu/virusinfo'>Here's its plans for the fall</a>").addTo(map);
+	L.marker([42.054853, -87.673945,], {icon: nwestIcon}).bindPopup("Northwestern University: <a href='https://www.northwestern.edu/coronavirus-covid-19-updates/'>Here's contributors plans for the fall</a>").addTo(map);
+	L.marker([40.7416, -74.1749,], {icon: rutIcon}).bindPopup("Rutgers University: <a href='https://coronavirus.rutgers.edu/?utm_source=uwide_site&utm_medium=website&utm_campaign=uwide_banneralert'>Here's its plans for the fall</a>").addTo(map);
+
+</script>
+
+
+
+</body>
+</html>
